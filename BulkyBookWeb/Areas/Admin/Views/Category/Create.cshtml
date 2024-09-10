@@ -1,0 +1,33 @@
+﻿@model Category
+
+<form method="post" id="createCategoryForm">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 style="color: #006400;">Create Category</h2> <!-- Changed to dark green -->
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label asp-for="CategoryName"></label>
+            <input asp-for="CategoryName" class="form-control" />
+            <span asp-validation-for="CategoryName" style="color: #006400;"></span> <!-- Changed to dark green -->
+        </div>
+        <div class="mb-3">
+            <label asp-for="CategoryCode"></label>
+            <input id="categoryCodeInput" asp-for="CategoryCode" class="form-control" />
+            <span asp-validation-for="CategoryCode" style="color: #006400;"></span> <!-- Changed to dark green -->
+        </div>
+        <button type="submit" class="btn" style="background-color: #006400; color: white; width:150px;">Create</button> <!-- Changed to dark green -->
+        <a asp-controller="Category" asp-action="Index" class="btn" style="background-color: #006400; color: white; width:150px;">
+            Back to List
+        </a> <!-- Changed to dark green -->
+    </div>
+</form>
+
+@section Scripts {
+    <script>
+        document.getElementById('createCategoryForm').addEventListener('submit', function () {
+            var categoryCodeInput = document.getElementById('categoryCodeInput');
+            categoryCodeInput.value = categoryCodeInput.value.toUpperCase();
+        });
+    </script>
+}
